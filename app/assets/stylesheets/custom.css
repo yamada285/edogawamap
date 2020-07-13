@@ -1,0 +1,11 @@
+#map {
+  height: 600px;
+  width: 600px;
+}
+.gmap input {
+  border: 1px solid #000;
+}
+
+.field_with_errors {
+  display: inline;
+}
