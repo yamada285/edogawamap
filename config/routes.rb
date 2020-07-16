@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/new'
+  root to: 'static_pages#home'
   get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
-  root to: 'maps#index'
+  get "help" => 'static_pages#help'
+  get "about" => 'static_pages#about'
+  get "index" => 'maps#index'
   resources :maps, only: [:index, :create]
 end
 
