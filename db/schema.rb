@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_043909) do
+ActiveRecord::Schema.define(version: 2020_07_20_100236) do
 
   create_table "maps", force: :cascade do |t|
     t.text "address"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_07_19_043909) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+  end
+
+  create_table "operation_hours", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "map_id"
+    t.integer "day"
+    t.time "open_time"
+    t.time "closing_time"
+    t.boolean "closed"
   end
 
   create_table "users", force: :cascade do |t|

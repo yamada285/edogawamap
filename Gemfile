@@ -41,6 +41,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder'
+source 'https://rails-assets.org' do 
+  gem 'rails-assets-jquery'
+end
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -77,3 +80,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'activemodel-serializers-xml'

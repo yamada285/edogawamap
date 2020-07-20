@@ -16,3 +16,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  if ($('#map').length > 0){
+    // Google Maps Javascript API
+    var google_map = $('meta[name=google_maps]').attr("content");
+    $.getScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDUTRlQPedRbflYmw6ueVt6t-kcZPpt7ig&callback=initMap`);
+  }
+})
