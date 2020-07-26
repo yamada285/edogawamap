@@ -9,13 +9,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   resources :users
-  resources :maps do
-    resources :operation_hours
-    collection do
-      get :map
-    end
-  end
+  resources :maps, only: [:new, :index, :create]
   get 'index' => 'maps#index'
-  # resources :maps, only: [:index, :create]
 end
 

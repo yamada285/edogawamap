@@ -1,25 +1,114 @@
 <h1>Maps</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<input id="address" type="textbox" value="">
+<input type="button" value="送信" onclick="codeAddress()">
 
-  <tbody>
-    <% @maps.each do |map| %>
-      <tr>
-        <td><%= map.name %></td>
-        <td><%= map.latitude %></td>
-        <td><%= map.longitude %></td>
-        <td><%= link_to 'Show', map %></td>
-        <td><%= link_to 'Edit', edit_map_path(map) %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+
+<div id='map'></div>
+
+
+
+<script>
+var map;
+var marker = [];
+var infoWindow = [];
+var markerData = [ // マーカーを立てる場所名・緯度・経度
+  {
+        name: '小松川境川親水公園',
+     lat: 35.699831,
+        lng: 139.865554
+ }, {
+        name: '一之江境川親水公園',
+     lat: 35.691040,
+      lng: 139.876595
+ }, {
+        name: '一之江抹香亭',
+        lat: 35.690935,
+        lng: 139.877185
+ }, {
+        name: '小松川千本桜',
+     lat: 35.696150,
+     lng: 139.854501
+ }, {
+        name: '大島小松川公園',
+       lat: 35.693061,
+     lng: 139.849478
+ }, {
+        name: '新川千本桜',
+      lat: 35.676220,
+    lng: 139.867749
+}, {
+        name: '総合レクリエーション公園',
+      lat: 35.661198,
+    lng: 139.858218
+}, {
+        name: 'なぎさ公園',
+      lat: 35.648995,
+    lng: 139.881920
+}, {
+        name: '行船公園',
+      lat: 35.671559,
+    lng: 139.858089
+}, {
+        name: '古川親水公園',
+      lat: 35.675595,
+    lng: 139.874545
+}, {
+        name: '新長島川親水公園',
+      lat: 35.658090,
+    lng: 139.858509
+}, {
+        name: '新左近川親水公園',
+      lat: 35.654669,
+    lng: 139.857207
+}, {
+        name: '宇喜田公園',
+      lat: 35.674588,
+    lng: 139.861439
+}, {
+        name: '葛西臨海公園',
+      lat: 35.641313,
+    lng: 139.860251
+}
+];
+ 
+function initMap() {
+ // 地図の作成
+    var mapLatLng = new google.maps.LatLng({lat: 35.678133, lng: 139.873311}); // 緯度経度のデータ作成
+   map = new google.maps.Map(document.getElementById('map'), { // #sampleに地図を埋め込む
+     center: mapLatLng, // 地図の中心を指定
+      zoom: 13 // 地図のズームを指定
+   });
+ 
+ // マーカー毎の処理
+ for (var i = 0; i < markerData.length; i++) {
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+        marker[i] = new google.maps.Marker({ // マーカーの追加
+         position: markerLatLng, // マーカーを立てる位置を指定
+            map: map // マーカーを立てる地図を指定
+       });
+ 
+     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+         content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+       });
+ 
+     
+     infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+ }
+ 
+   marker[0].setOptions({// TAM 東京のマーカーのオプション設定
+        icon: {
+         url: markerData[0]['icon']// マーカーの画像を変更
+       }
+   });
+
+}
+ 
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUTRlQPedRbflYmw6ueVt6t-kcZPpt7ig&callback=initMap" async defer></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>

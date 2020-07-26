@@ -1,7 +1,0 @@
-<h1><%= map.name %></h1>
-<h2>Hours of Operation</h2>
-<ul>
-  <% map.operation_hours.each do |operation_hour| %>
-    <li><strong><%= operation_hour.day.titleize %></strong> - <%= operation_hour.hours %></li>
-  <% end %>
-</ul>
