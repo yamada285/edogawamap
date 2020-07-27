@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   resources :maps
-  get '/index' => 'maps#index'
+  get 'index' => 'maps#index'
   get '/maps/:id' => 'maps#show'
   post '/maps/create' => 'maps#create'
   resources :users
