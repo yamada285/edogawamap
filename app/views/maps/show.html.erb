@@ -1,0 +1,32 @@
+<h1>ここだぜ！！</h1>
+#投稿機能
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+    <%= form_tag("/maps/create") do %>
+      <div class="form">
+        <div class="form-body">
+          <%= hidden_field_tag :user_id, @user.id %>
+          <%= hidden_field_tag :park_id, @map.id %>
+          <textarea name="content"></textarea>
+          <input type="submit" value="投稿">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<p><%= @user.name %></p>
+<p><%= @user.id %></p>
+#投稿一覧
+
+<p><%= @map.address %></p>
+<div>
+  <% @posts.each do |post| %>
+    <%= post.user_id %>
+    <%= post.content%>
+  <% end %>
+</div>
+
+
+<%= link_to("投稿する",'/posts/new') %>
