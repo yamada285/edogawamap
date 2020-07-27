@@ -6,8 +6,8 @@
     <%= form_tag("/maps/create") do %>
       <div class="form">
         <div class="form-body">
-          <%= hidden_field_tag :user_id, @user.id %>
-          <%= hidden_field_tag :park_id, @map.id %>
+          <%= hidden_field_tag :user_id, '@user.id' %>
+          <%= hidden_field_tag :park_id, '@map.id' %>
           <textarea name="content"></textarea>
           <input type="submit" value="投稿">
         </div>
