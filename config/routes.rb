@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   resources :users
   resources :maps
-  get '/index' => 'maps#index'
+  get 'maps/index' => 'maps#index'
   get 'maps/:id' => 'maps#show'
   post 'maps/create' => 'maps#create'
   resources :posts
