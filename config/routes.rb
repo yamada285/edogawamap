@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+  get '/index' => 'maps#index'
+  get '/maps/:id' => 'maps#show'
+  post '/maps/create' => 'maps#create'
   resources :users
-  get 'index' => 'maps#index'
-  get 'maps/:id' => 'maps#show'
-  post 'maps/create' => 'maps#create'
   resources :posts
   post '/posts/create' => 'posts#create'
 end
