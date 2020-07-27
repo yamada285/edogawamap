@@ -5,10 +5,6 @@ class MapsController < ApplicationController
   end
 
   def index
-    @maps = Map.all
-    @spot = Map.find_by(id: 5)
-    gon.lat = @spot.latitude
-    gon.lng = @spot.longitude
   end
 
   def create
