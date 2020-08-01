@@ -1,5 +1,5 @@
 
-<h1><%= @map.address %></h1>
+
 
 <div class="main posts-new">
   <div class="container">
@@ -16,13 +16,23 @@
   </div>
 </div>
 
+<div class="map-address">
+
+</div>
 
 
-<div>
-  <% @posts.each do |posts| %>
-    <%= posts.user_id %>
-    <%= posts.content%>
-  <% end %>
+<div class="post-index">
+<img src="<%= "/park_image/#{@map.id}.jpg" %>">
+<h1><%= @map.address %></h1>
+<h1><%= @map.id %></h1>
+  <div class="container">
+      <% @posts.each do |posts| %>
+        <li class="row col-xl post-index-item">
+        <%= posts.user_id %>
+        <%= posts.content%>
+        </li>
+      <% end %>
+  </div>
 </div>
 
 

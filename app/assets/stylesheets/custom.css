@@ -109,7 +109,7 @@ header {
   float: left;
   line-height: 64px;
   font-size: 13px;
-  color: black;
+  color: white;
   padding-left: 15px;
 }
 
@@ -123,6 +123,35 @@ header {
   padding-right: 5px;
 }
 
+.dropdown-menu a{
+  color:black;
+}
+/* maps/show */
+.post-index-item{
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.post-index{
+  position: absolute;
+  top: 500px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #f5f8fa;
+}
+
+.map-address{
+  position: absolute;
+  top: 500px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #f5f8fa;
+}
+
 
 
 
@@ -130,7 +159,11 @@ header {
 
 #map {
   height: 600px;
-  width: 1200px;
+  width: 80%;
+  margin: auto;
+}
+.map_p{
+  text-align: center;
 }
 .gmap input {
   border: 1px solid #000;

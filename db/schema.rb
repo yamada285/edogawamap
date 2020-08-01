@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_111432) do
+ActiveRecord::Schema.define(version: 2020_08_01_053110) do
 
   create_table "maps", force: :cascade do |t|
     t.text "address"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_111432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "park_image"
   end
 
   create_table "mcroposts", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_111432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "park_id"
+    t.string "img"
   end
 
   create_table "users", force: :cascade do |t|
