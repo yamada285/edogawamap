@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'index' => 'maps#index'
   get '/maps/:id' => 'maps#show'
   post '/maps/create' => 'maps#create'
+
   resources :users
   resources :posts
   post '/posts/create' => 'posts#create'

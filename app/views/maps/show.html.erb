@@ -1,43 +1,43 @@
+<div class="park">
+  <h1><%= @map.address %></h1>
+  <img src="<%= "/park_image/#{@map.id}.jpg" %>" > 
 
-
-
-<div class="main posts-new">
-  <div class="container">
-    <h1 class="form-heading">投稿する</h1>
+  <div class="post-box">
+    <p>ようこそ<%= @user.name %>さん、見つけた生き物を投稿しよう！</p>
     <%= form_for(@post, :multipart => true, url: {controller: 'maps', action: 'create' }) do |f| %>
-      <div class="form">
-        <div class="form-body">
           <%= f.hidden_field :user_id, :value => @user.id %>
           <%= f.hidden_field :park_id, :value => @map.id %>
-          <%= f.text_field :content %>
-          <%= f.file_field :img %>
-          <input type="submit" value="投稿">
-        </div>
-      </div>
+          <%= f.text_area :content, class:"text-box" %>
+          
+          <%= f.file_field :img, class: "file-box" %>
+          <%= f.submit :value => "投稿する", class: "submit-box" %>
+         
     <% end %>
   </div>
 </div>
 
-<div class="map-address">
 
+<div class="time-line">
+  <% @posts.each do |posts| %>
+    <div class="row col-xl post-index-item">
+      <p class="time-line-name" ><%= posts.user_id %></p>
+      <p class="time-line-text" ><%= posts.content %></p>
+      <img src="<%= "#{posts.img}" %>" class="time-line-image">
+    </div>
+  <% end %>
 </div>
 
 
-<div class="post-index">
-<img src="<%= "/park_image/#{@map.id}.jpg" %>">
 
-<h1><%= @map.address %></h1>
-<h1><%= @map.id %></h1>
-  <div class="container">
-      <% @posts.each do |posts| %>
-        <li class="row col-xl post-index-item">
-        <%= posts.user_id %>
-        <%= posts.content%>
-        <%= image_tag "#{posts.img}" %>
-        </li>
-      <% end %>
-  </div>
-</div>
+  
+ 
+
+
+
+
+
+
+
 
 
 <%= link_to("戻る",index_path) %>

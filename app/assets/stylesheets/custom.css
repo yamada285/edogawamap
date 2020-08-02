@@ -127,12 +127,7 @@ header {
   color:black;
 }
 /* maps/show */
-.post-index-item{
-  padding: 20px 30px;
-  background-color: white;
-  overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
-}
+
 
 .post-index{
   position: absolute;
@@ -171,4 +166,83 @@ header {
 
 .field_with_errors {
   display: inline;
+}
+/* maps/:id */
+.park {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.park img {
+  z-index:10;
+}
+
+.post-box {
+  width: 540px;
+  height: 320px;
+  position: relative;
+  border: 1px solid #d8dadf;
+}
+
+.post-box p {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.text-box {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+.file-box {
+  position: absolute;
+  top: 270px;
+  left: 20px;
+}
+
+.submit-box {
+  position: absolute;
+  top: 270px;
+  left: 440px;
+}
+
+.time-line {
+  width: 500px;
+  float: right;
+  margin-top: 100px;
+  margin-right: 50px;
+  position: relative;
+}
+
+.post-index-item{
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.time-line-name {
+  position: absolute;
+  top:10px;
+  left: 20px;
+}
+
+.time-line-image {
+  width: 400px;
+  height: 200px;
+  border-radius: 3%;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin: 120px 0 10px;
+  object-fit: cover;
+}
+
+.time-line-text {
+  position: absolute;
+  top: 40px;
+  left: 30px;
 }

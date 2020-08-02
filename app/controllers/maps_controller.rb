@@ -20,7 +20,7 @@ class MapsController < ApplicationController
   def show
     @user = current_user
     @map = Map.find_by(id: params[:id])
-    @post = Post.find_by(id: 15)
+    @post = Post.new
     @posts = Post.all.order(created_at: :desc)
   end
 
