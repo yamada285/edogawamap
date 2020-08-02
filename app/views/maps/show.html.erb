@@ -4,11 +4,13 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/maps/create") do %>
+    <%= form_for(@post, :multipart => true, url: {controller: 'maps', action: 'create' }) do |f| %>
       <div class="form">
         <div class="form-body">
-          <%= hidden_field_tag :user_id, @user.id %>
-          <textarea name="content"></textarea>
+          <%= f.hidden_field :user_id, :value => @user.id %>
+          <%= f.hidden_field :park_id, :value => @map.id %>
+          <%= f.text_field :content %>
+          <%= f.file_field :img %>
           <input type="submit" value="投稿">
         </div>
       </div>
@@ -23,6 +25,7 @@
 
 <div class="post-index">
 <img src="<%= "/park_image/#{@map.id}.jpg" %>">
+
 <h1><%= @map.address %></h1>
 <h1><%= @map.id %></h1>
   <div class="container">
@@ -30,6 +33,7 @@
         <li class="row col-xl post-index-item">
         <%= posts.user_id %>
         <%= posts.content%>
+        <%= image_tag "#{posts.img}" %>
         </li>
       <% end %>
   </div>

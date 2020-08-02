@@ -49,6 +49,7 @@ gem 'gmaps4rails'
 
 gem "gon"
 gem "dotenv-rails"
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

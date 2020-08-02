@@ -8,9 +8,7 @@ class MapsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content],
-                     user_id: params[:user_id],
-                     park_id: params[:park_id])
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/maps/#{@post.park_id}")
@@ -22,7 +20,7 @@ class MapsController < ApplicationController
   def show
     @user = current_user
     @map = Map.find_by(id: params[:id])
-    @post = Post.new
+    @post = Post.find_by(id: 15)
     @posts = Post.all.order(created_at: :desc)
   end
 
@@ -33,7 +31,7 @@ class MapsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :user_id, :park_id)
+    params.require(:post).permit(:content, :user_id, :park_id, :img)
   end
 
 end

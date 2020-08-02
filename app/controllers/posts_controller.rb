@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.new(content: params[:content],
+                     img: params[:img])
     if @post.save
       flash[:notice] = "投稿を作成しました"
-      redirect_to("/maps")
+      redirect_to("/maps/#{@post.park_id}")
     else
       render '/posts/new'
     end
