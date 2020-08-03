@@ -1,6 +1,6 @@
 <div class="park">
   <h1><%= @map.address %></h1>
-  <img src="<%= "/park_image/#{@map.id}.jpg" %>" > 
+  <img src="<%= "/park_image/#{@map.id}.jpg" %>" class= "park-image" > 
 
   <div class="post-box">
     <p>ようこそ<%= @user.name %>さん、見つけた生き物を投稿しよう！</p>
@@ -18,11 +18,11 @@
 
 
 <div class="time-line">
-  <% @posts.each do |posts| %>
+  <% @posts.each do |post| %>
     <div class="row col-xl post-index-item">
-      <p class="time-line-name" ><%= posts.user_id %></p>
-      <p class="time-line-text" ><%= posts.content %></p>
-      <img src="<%= "#{posts.img}" %>" class="time-line-image">
+      <p class="time-line-name" ><%= post.user.name %></p>
+      <p class="time-line-text" ><%= post.content %></p>
+      <img src="<%= "#{post.img}" %>" class="time-line-image">
     </div>
   <% end %>
 </div>
