@@ -11,7 +11,7 @@
 var map;
 var marker = [];
 var infoWindow = [];
-var markerData = [ // マーカーを立てる場所名・緯度・経度
+var markerData = [ 
   {
         name: '小松川境川親水公園',
      lat: 35.699831,
@@ -88,7 +88,7 @@ var markerData = [ // マーカーを立てる場所名・緯度・経度
 function initMap() {
  // 地図の作成
     var mapLatLng = new google.maps.LatLng({lat: 35.678133, lng: 139.873311}); // 緯度経度のデータ作成
-   map = new google.maps.Map(document.getElementById('map'), { // #sampleに地図を埋め込む
+   map = new google.maps.Map(document.getElementById('map'), { 
      center: mapLatLng, // 地図の中心を指定
       zoom: 13 // 地図のズームを指定
    });
@@ -110,7 +110,7 @@ function initMap() {
      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
  }
  
-   marker[0].setOptions({// TAM 東京のマーカーのオプション設定
+   marker[0].setOptions({
         icon: {
          url: markerData[0]['icon']// マーカーの画像を変更
        }

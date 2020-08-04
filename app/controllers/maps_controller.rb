@@ -1,6 +1,7 @@
 class MapsController < ApplicationController
 
   def new
+   
     @map = Map.new
   end
 
@@ -13,7 +14,7 @@ class MapsController < ApplicationController
       flash[:notice] = "投稿を作成しました"
       redirect_to("/maps/#{@post.park_id}")
     else
-      render '/posts/new'
+      render '/maps/new'
     end
   end
 
