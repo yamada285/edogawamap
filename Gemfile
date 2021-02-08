@@ -49,7 +49,7 @@ gem 'gmaps4rails'
 
 gem "gon"
 gem "dotenv-rails"
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 
 group :development, :test do
